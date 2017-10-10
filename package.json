@@ -1,6 +1,6 @@
 {
   "name": "1_lesson_hexlet_js_paladin",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Hello World!",
   "main": "index.js",
   "bin": {
@@ -27,5 +27,6 @@
     "babel-core": "*",
     "babel-preset-env": "*",
     "babel-preset-stage-0": "*"
-  }
+  },
+  "dependencies": {}
 }
