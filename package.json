@@ -1,0 +1,31 @@
+{
+  "name": "1_lesson_hexlet_js_paladin",
+  "version": "1.0.0",
+  "description": "Hello World!",
+  "main": "index.js",
+  "bin": {
+    "brain-games": "dist/bin/brain-games.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel-node": "babel-node",
+    "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/13paladin/project-lvl1-s132.git"
+  },
+  "author": "Anton Kozlov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/13paladin/project-lvl1-s132/issues"
+  },
+  "homepage": "https://github.com/13paladin/project-lvl1-s132#readme",
+  "devDependencies": {
+    "babel-cli": "*",
+    "babel-core": "*",
+    "babel-preset-env": "*",
+    "babel-preset-stage-0": "*"
+  }
+}
