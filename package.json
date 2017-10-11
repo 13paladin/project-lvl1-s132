@@ -1,6 +1,6 @@
 {
   "name": "1_lesson_hexlet_js_paladin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Hello World!",
   "main": "index.js",
   "bin": {
@@ -10,7 +10,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node",
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "eslint": "eslint"
   },
   "repository": {
     "type": "git",
@@ -22,12 +23,17 @@
     "url": "https://github.com/13paladin/project-lvl1-s132/issues"
   },
   "homepage": "https://github.com/13paladin/project-lvl1-s132#readme",
+  "dependencies": {
+    "readline-sync": "*"
+  },
   "devDependencies": {
     "babel-cli": "*",
     "babel-core": "*",
     "babel-preset-env": "*",
     "babel-preset-stage-0": "*",
-    "readline-sync": "*"
-  },
-  "dependencies": {}
+    "eslint": "*",
+    "eslint-config-airbnb-base": "*",
+    "eslint-plugin-import": "*",
+    "babel-eslint": "*"
+  }
 }
