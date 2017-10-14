@@ -8,7 +8,6 @@ const brainEvenPlay = () => {
   const userAnswer = readlineSync.question(`Question: ${question} `);
   console.log(`Your answer: ${userAnswer}`);
   if (userAnswer === correctAnswer) {
-    console.log('Correct!');
     return true;
   }
   return false;

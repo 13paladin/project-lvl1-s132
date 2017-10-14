@@ -12,7 +12,9 @@ export default (game) => {
   console.log(`Hello, ${userName}!\n`);
   const rounds = 3;
   for (let i = 1; i <= rounds; i += 1) {
-    if (!playGame(game)()) {
+    if (playGame(game)()) {
+      console.log('Correct!');
+    } else {
       console.log(`Let's try again, ${userName}!`);
       return;
     }

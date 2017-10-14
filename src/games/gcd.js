@@ -14,7 +14,6 @@ const brainGcdPlay = () => {
   const userAnswer = readlineSync.question(`Question: ${question1} ${question2} `);
   console.log(`Your answer: ${userAnswer}`);
   if (Number(userAnswer) === correctAnswer) {
-    console.log('Correct!');
     return true;
   }
   return false;

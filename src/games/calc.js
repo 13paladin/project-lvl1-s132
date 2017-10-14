@@ -23,7 +23,6 @@ const brainCalcPlay = () => {
   const userAnswer = readlineSync.question(`Question: ${question1} ${sign} ${question2} `);
   console.log(`Your answer: ${userAnswer}`);
   if (Number(userAnswer) === correctAnswer) {
-    console.log('Correct!');
     return true;
   }
   return false;
