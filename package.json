@@ -1,12 +1,13 @@
 {
   "name": "1_lesson_hexlet_js_paladin",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Hello World!",
   "main": "index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
     "brain-even": "dist/bin/games/brain-even.js",
-    "brain-calc": "dist/bin/games/brain-calc.js"
+    "brain-calc": "dist/bin/games/brain-calc.js",
+    "brain-gcd": "dist/bin/games/brain-gcd.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

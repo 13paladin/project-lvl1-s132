@@ -42,9 +42,30 @@ const brainCalcPlay = () => {
   return false;
 };
 
+const brainGcdPlay = () => {
+  const numberMax = 100;
+  const num1 = Math.round(Math.random() * numberMax);
+  const num2 = Math.round(Math.random() * numberMax);
+  let correctAnswer;
+  for (let i = 0; i <= (num1 > num2 ? num1 : num2); i += 1) {
+    if ((num1 % i) + (num2 % i) === 0) {
+      correctAnswer = i;
+    }
+  }
+  const userAnswer = readlineSync.question(`Question: ${num1} ${num2} `);
+  console.log(`Your answer: ${userAnswer}`);
+  if (Number(userAnswer) === correctAnswer) {
+    console.log('Correct!');
+    return true;
+  }
+  return false;
+};
+
 const consGame = cons;
 export const brainEven = consGame('Answer "yes" if number even otherwise answer "no".\n', brainEvenPlay);
 export const brainCalc = consGame('What is the result of the expression?\n', brainCalcPlay);
+export const brainGcd = consGame('Find the greatest common divisor of given numbers.\n', brainGcdPlay);
+
 
 export const brainGames = (game) => {
   console.log('Welcome to the Brain Games!');
