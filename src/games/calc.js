@@ -1,31 +1,28 @@
-import readlineSync from 'readline-sync';
-import { consGame } from '..';
+import { consPlay, consGame, getRandomNum } from '../utils';
 
-const brainCalcPlay = () => {
-  const numberMax = 99;
-  const signVariants = '+-*';
-  const question1 = Math.round(Math.random() * numberMax);
-  const question2 = Math.round(Math.random() * numberMax);
-  const sign = signVariants[Math.round(Math.random() * (signVariants.length - 1))];
-  let correctAnswer;
+const description = 'What is the result of the expression?\n';
+const numberMax = 99;
+const signVariants = '+-*';
+
+const play = () => {
+  const num1 = getRandomNum(numberMax);
+  const num2 = getRandomNum(numberMax);
+  const sign = signVariants[getRandomNum(signVariants.length - 1)];
+  const question = `${num1} ${sign} ${num2}`;
+  let answer;
   switch (sign) {
     case '+':
-      correctAnswer = question1 + question2;
+      answer = num1 + num2;
       break;
     case '-':
-      correctAnswer = question1 - question2;
+      answer = num1 - num2;
       break;
     case '*':
-      correctAnswer = question1 * question2;
+      answer = num1 * num2;
       break;
-    default:
+    // no default
   }
-  const userAnswer = readlineSync.question(`Question: ${question1} ${sign} ${question2} `);
-  console.log(`Your answer: ${userAnswer}`);
-  if (Number(userAnswer) === correctAnswer) {
-    return true;
-  }
-  return false;
+  return consPlay(question, answer);
 };
 
-export default consGame('What is the result of the expression?\n', brainCalcPlay);
+export default consGame(description, play);

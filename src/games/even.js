@@ -1,16 +1,12 @@
-import readlineSync from 'readline-sync';
-import { consGame } from '..';
+import { consPlay, consGame, getRandomNum } from '../utils';
 
-const brainEvenPlay = () => {
-  const numberMax = 100;
-  const question = Math.round(Math.random() * numberMax);
-  const correctAnswer = question % 2 === 0 ? 'yes' : 'no';
-  const userAnswer = readlineSync.question(`Question: ${question} `);
-  console.log(`Your answer: ${userAnswer}`);
-  if (userAnswer === correctAnswer) {
-    return true;
-  }
-  return false;
+const description = 'Answer "yes" if number even otherwise answer "no".\n';
+const numberMax = 100;
+
+const play = () => {
+  const question = getRandomNum(numberMax);
+  const answer = question % 2 === 0 ? 'yes' : 'no';
+  return consPlay(question, answer);
 };
 
-export default consGame('Answer "yes" if number even otherwise answer "no".\n', brainEvenPlay);
+export default consGame(description, play);

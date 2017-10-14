@@ -1,53 +1,40 @@
-import readlineSync from 'readline-sync';
-import { consGame } from '..';
+import { consPlay, consGame, getRandomNum } from '../utils';
 
-const brainBalancePlay = () => {
-  const numberMax = 9999;
-  const question = Math.round(Math.random() * numberMax);
-  const userAnswer = readlineSync.question(`Question: ${question} `);
-  console.log(`Your answer: ${userAnswer}`);
-  let balancingNum = [];
-  let minDigit = 9;
-  let maxDigit = 0;
-  let minDigitIndex;
-  let maxDigitIndex;
+const description = 'Balance the given number.\n';
+const numberMax = 9999;
 
-  // convert integer to array with digits
-  for (let i = String(question).length - 1; i >= 0; i -= 1) {
-    balancingNum[i] = Number(String(question)[i]);
+const intToArray = (int) => {
+  const intStr = String(int);
+  const intArray = [];
+  for (let i = 0; i < intStr.length; i += 1) {
+    intArray[i] = Number(intStr[i]);
   }
-
-  // balance array
-  while (Math.abs(maxDigit - minDigit) > 1) {
-    minDigit = 9;
-    maxDigit = 0;
-    for (let i = 0; i < balancingNum.length; i += 1) {
-      if (balancingNum[i] < minDigit) {
-        minDigit = balancingNum[i];
-        minDigitIndex = i;
-      }
-      if (balancingNum[i] > maxDigit) {
-        maxDigit = balancingNum[i];
-        maxDigitIndex = i;
-      }
-    }
-    if (Math.abs(maxDigit - minDigit) > 1) {
-      balancingNum[minDigitIndex] += 1;
-      balancingNum[maxDigitIndex] -= 1;
-    }
+  return intArray;
+};
+const arrayToStr = (array) => {
+  let arrayStr = '';
+  for (let i = 0; i < array.length; i += 1) {
+    arrayStr += String(array[i]);
   }
-  balancingNum = balancingNum.sort();
-
-  // convert array to integer
-  let correctAnswer = '';
-  for (let i = 0; i < balancingNum.length; i += 1) {
-    correctAnswer += String(balancingNum[i]);
+  return arrayStr;
+};
+const balance = (num) => {
+  const sortedNum = num.sort();
+  const minDigit = sortedNum[0];
+  const maxDigit = sortedNum[num.length - 1];
+  if (maxDigit - minDigit > 1) {
+    sortedNum[0] += 1;
+    sortedNum[num.length - 1] -= 1;
+    return balance(sortedNum);
   }
-  console.log(correctAnswer);
-  if (userAnswer === correctAnswer) {
-    return true;
-  }
-  return false;
+  return sortedNum;
 };
 
-export default consGame('Balance the given number.\n', brainBalancePlay);
+const play = () => {
+  const question = getRandomNum(numberMax);
+  const num = balance(intToArray(question));
+  const answer = arrayToStr(num);
+  return consPlay(question, answer);
+};
+
+export default consGame(description, play);

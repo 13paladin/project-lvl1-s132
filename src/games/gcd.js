@@ -1,22 +1,28 @@
-import readlineSync from 'readline-sync';
-import { consGame } from '..';
+import { consPlay, consGame, getRandomNum } from '../utils';
 
-const brainGcdPlay = () => {
-  const numberMax = 100;
-  const question1 = Math.round(Math.random() * numberMax);
-  const question2 = Math.round(Math.random() * numberMax);
-  let correctAnswer;
-  for (let i = 0; i <= (question1 > question2 ? question1 : question2); i += 1) {
-    if ((question1 % i) + (question2 % i) === 0) {
-      correctAnswer = i;
-    }
+const description = 'Find the greatest common divisor of given numbers.\n';
+const numberMax = 100;
+
+const getGcd = (num1, num2) => {
+  if (num1 < num2) {
+    return getGcd(num2, num1);
   }
-  const userAnswer = readlineSync.question(`Question: ${question1} ${question2} `);
-  console.log(`Your answer: ${userAnswer}`);
-  if (Number(userAnswer) === correctAnswer) {
-    return true;
+  if (num2 === 0) {
+    return num1;
   }
-  return false;
+  const r = num1 % num2;
+  if (r === 0) {
+    return num2;
+  }
+  return getGcd(num2, r);
 };
 
-export default consGame('Find the greatest common divisor of given numbers.\n', brainGcdPlay);
+const play = () => {
+  const num1 = getRandomNum(numberMax);
+  const num2 = getRandomNum(numberMax);
+  const question = `${num1} ${num2}`;
+  const answer = getGcd(num1, num2);
+  return consPlay(question, answer);
+};
+
+export default consGame(description, play);
