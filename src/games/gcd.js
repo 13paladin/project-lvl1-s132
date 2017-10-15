@@ -23,8 +23,8 @@ const play = () => {
   const num1 = getRandomNum(numberMax);
   const num2 = getRandomNum(numberMax);
   const question = `${num1} ${num2}`;
-  const answer = getGcd(num1, num2);
-  return cons(question, String(answer));
+  const answer = String(getGcd(num1, num2));
+  return cons(question, answer);
 };
 
-export default () => startGame(cons(description, play));
+export default () => startGame(description, play);

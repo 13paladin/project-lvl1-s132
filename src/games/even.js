@@ -11,4 +11,4 @@ const play = () => {
   return cons(question, answer);
 };
 
-export default () => startGame(cons(description, play));
+export default () => startGame(description, play);

@@ -27,4 +27,4 @@ const play = () => {
   return cons(question, String(answer));
 };
 
-export default () => startGame(cons(description, play));
+export default () => startGame(description, play);
