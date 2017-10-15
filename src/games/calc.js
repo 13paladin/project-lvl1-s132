@@ -1,6 +1,8 @@
-import { consPlay, consGame, getRandomNum } from '../utils';
+import { cons } from 'hexlet-pairs';
+import getRandomNum from '../utils';
+import startGame from '..';
 
-const description = 'What is the result of the expression?\n';
+const description = 'What is the result of the expression?';
 const numberMax = 99;
 const signVariants = '+-*';
 
@@ -22,7 +24,7 @@ const play = () => {
       break;
     // no default
   }
-  return consPlay(question, answer);
+  return cons(question, String(answer));
 };
 
-export default consGame(description, play);
+export default () => startGame(cons(description, play));

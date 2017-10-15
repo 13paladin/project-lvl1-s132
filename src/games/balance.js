@@ -1,6 +1,8 @@
-import { consPlay, consGame, getRandomNum } from '../utils';
+import { cons } from 'hexlet-pairs';
+import getRandomNum from '../utils';
+import startGame from '..';
 
-const description = 'Balance the given number.\n';
+const description = 'Balance the given number.';
 const numberMax = 9999;
 
 const intToArray = (int) => {
@@ -34,7 +36,7 @@ const play = () => {
   const question = getRandomNum(numberMax);
   const num = balance(intToArray(question));
   const answer = arrayToStr(num);
-  return consPlay(question, answer);
+  return cons(question, answer);
 };
 
-export default consGame(description, play);
+export default () => startGame(cons(description, play));
