@@ -5,15 +5,15 @@ import startGame from '..';
 const description = 'Balance the given number.';
 const numberMax = 9999;
 
-const balance = (question) => {
-  const sortedNum = question.split('').map(char => Number(char));
-  sortedNum.sort();
-  while ((sortedNum[sortedNum.length - 1] - sortedNum[0]) > 1) {
-    sortedNum[0] += 1;
-    sortedNum[sortedNum.length - 1] -= 1;
-    sortedNum.sort();
+const balance = (num) => {
+  const numArray = num.split('').map(char => Number(char));
+  numArray.sort();
+  while ((numArray[numArray.length - 1] - numArray[0]) > 1) {
+    numArray[0] += 1;
+    numArray[numArray.length - 1] -= 1;
+    numArray.sort();
   }
-  return sortedNum.join('');
+  return numArray.join('');
 };
 
 const play = () => {

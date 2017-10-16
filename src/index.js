@@ -19,6 +19,7 @@ export default (description, play) => {
     if (userAnswer === correctAnswer) {
       console.log('Correct!');
     } else {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
       return;
     }
